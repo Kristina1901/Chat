@@ -1,0 +1,55 @@
+.home {
+    display: flex;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+    height: 100vh;
+    
+    
+}
+.messages {
+    flex-grow: 2;
+    border: 2px solid white;
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar {
+ border: 2px solid white;
+ border-bottom: none;
+}
+.photo {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.speaker {
+    border: 2px solid white;
+    padding: 15px;
+    border-left: none;
+    border-top: none;
+    background: linear-gradient(to right, #6190e8, #a7bfe8);
+    color: white;
+}
+.wrapperUser {
+    padding-top: 25px;
+}
+.title {
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 29px;
+    color: white;
+    padding: 15px;
+}
+.messagesWrapper {
+    flex-grow: 2;
+    padding: 15px;
+    overflow-y: auto;
+}
+.select {
+   padding: 15px;
+   color: white;
+}
