@@ -1,4 +1,8 @@
 @import-normalize; /* bring in normalize.css styles */
+html, body {
+  height: 100vh
+  
+}
 
 body {
   margin: 0;
@@ -7,6 +11,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+  height: 100hv;
+  
 }
 
 code {
