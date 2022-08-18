@@ -13,8 +13,7 @@
     line-height: 29px;
     color: #808080;
     min-width: 70px;
-    margin: 1em auto 1rem 0rem;
-      
+    margin: 1rem 2rem 1rem auto;
 }   
 .another {
     background:#333;
@@ -30,8 +29,7 @@
     line-height: 29px;
     color: white;
     min-width: 70px;
-    margin: 1rem 2rem 1rem auto;
-   
+    margin: 1em auto 1rem 0rem;
     
 }
 .another .text {
@@ -61,6 +59,6 @@
     display: block;
    
 }
-.another + .time {
+.own + .time {
     text-align: right;
 }

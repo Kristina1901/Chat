@@ -13,7 +13,7 @@ const Message = ({msg, user1}) => {
     ref ={scrollRef}
     >
     <span className={s.text}>
-    {msg.text}
+    {msg.text===undefined? msg.joke: msg.text}
     </span> 
       </div>  
       <small className={s.time}>
