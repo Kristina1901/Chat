@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
 import {ref, getDownloadURL, uploadBytes, deleteObject} from 'firebase/storage'
 import s from './Profile.module.css'
-import Img from './man.jpg'
+import man from './man.jpg'
 import {storage, db, auth} from '../../firebase'
 import { getDoc, doc, updateDoc } from "firebase/firestore"
+import circle from './circle.png';
+import checked from './checked.png'
 import icon from './icon.png'
 const Profile =() => {
     const [img, setImg]= useState('')
-    const [user, setUser] = useState()
+    const [user, setUser] = useState({})
     useEffect(() => {
         getDoc(doc(db, 'users', auth.currentUser.uid)).then(docSnap =>{
           if (docSnap.exists) {
@@ -39,7 +41,8 @@ const Profile =() => {
     return(
         <div className={s.container}>
         <div>
-        <img src={user? user.avatar :Img} alt="avatar" width={'50px'} height={'50px'} className={s.photo}/>
+         <img src={user.hasOwnProperty('avatar')? user.avatar : man} alt="avatar" width={'50px'} height={'50px'} className={s.photo}/>
+        <div className={user.isOnline? s.isOnline: s.offline}/>
         <input
         type="file"
         accept="image/*"
