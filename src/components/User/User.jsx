@@ -24,10 +24,10 @@ const User =({user1, user, selectUser, chat}) => {
         </div>
         <div className={s.lastMessage}>
         <h4>{user.name}</h4>
-        {data&&(<p>{data.text}</p>)}
+        {data&&(<p>{data.text===undefined? data.joke: data.text}</p>)}
         </div>
         <small className={s.time}>
-        <Moment format="MMMM DD, YYYY" fromNow>{user.createdAt.toDate()}</Moment>
+        <Moment format="MMM DD, YYYY" fromNow>{user.createdAt.toDate()}</Moment>
     </small>
     </div>
    

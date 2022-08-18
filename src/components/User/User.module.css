@@ -24,6 +24,8 @@
     display: flex;
     padding: 15px;
     border-bottom: 2px solid white;
+    justify-content: center;
+    align-items: center;
 }
 .photo {
     border-radius: 50%;
@@ -39,7 +41,14 @@ h4 {
 p {
   margin: 0;
   color:  #808080;
+  max-width: 400px;
+  overflow: hidden;
+  padding: 5px;
+  max-height: 100px;
 }
 .time {
-    color:  #808080;
+    color: white;
+    flex-shrink: 0;
+    text-align: center;
+    display: block;
 }
