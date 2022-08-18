@@ -1,0 +1,66 @@
+.own {
+    background: white;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    display: block;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #808080;
+    min-width: 70px;
+    margin: 1em auto 1rem 0rem;
+      
+}   
+.another {
+    background:#333;
+    border-radius: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: white;
+    min-width: 70px;
+    margin: 1rem 2rem 1rem auto;
+   
+    
+}
+.another .text {
+    color: white;
+    font-size: 18px;
+    line-height: 29px;
+}
+.text {
+    color: #808080;
+    font-size: 18px;
+    line-height: 29px;
+}
+.main {
+    padding: 10px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.time {
+    color:  #808080;
+    font-size: 12px;
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+   
+}
+.another + .time {
+    text-align: right;
+}
