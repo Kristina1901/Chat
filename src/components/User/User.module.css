@@ -1,0 +1,45 @@
+.isOnline {
+    background-image: url(./free-icon-checked-179372.png);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    bottom: 25px;
+    left: 35px;
+}
+.offline {
+    background-image: url(./free-icon-circle-491717.png);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    bottom: 25px;
+    left: 35px;
+}
+.profile{ 
+    display: flex;
+    padding: 15px;
+    border-bottom: 2px solid white;
+}
+.photo {
+    border-radius: 50%;
+}
+.lastMessage {
+    flex-grow: 2;
+    padding-left: 15px;
+}
+h4 {
+    margin: 0;
+    color: white;
+}
+p {
+  margin: 0;
+  color:  #808080;
+}
+.time {
+    color:  #808080;
+}
