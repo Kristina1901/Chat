@@ -53,3 +53,25 @@
    padding: 15px;
    color: white;
 }
+.isOnline {
+    background-image: url(./checked.png);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    bottom: 25px;
+    left: 35px;
+}
+.offline {
+    background-image: url(./circle.png);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    bottom: 25px;
+    left: 35px;
+    position: relative;
+}
