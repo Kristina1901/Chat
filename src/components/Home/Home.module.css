@@ -7,8 +7,6 @@
     line-height: 29px;
     background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
     height: 100vh;
-    
-    
 }
 .messages {
     flex-grow: 2;
@@ -49,6 +47,19 @@
     padding: 15px;
     overflow-y: auto;
 }
+.messagesWrapper::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+.messagesWrapper::-webkit-scrollbar-track {
+    background:white;	
+  }
+  
+.messagesWrapper::-webkit-scrollbar-thumb {
+    background-color:#FFC0CB;
+    border-radius: 20px;
+    border: 1px solid white;
+  }
 .select {
    padding: 15px;
    color: white;
