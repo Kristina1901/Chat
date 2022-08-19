@@ -125,6 +125,7 @@ const Home = () => {
   };
   const handleQuery = event => {
     setKeyword(event.target.value.toLowerCase());
+    getResultSearch(event.target.value.toLowerCase());
   };
   let list;
   if (search.length === 0) {
