@@ -3,6 +3,8 @@ import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth, db} from '../../firebase'
 import {doc, updateDoc} from 'firebase/firestore'
 import {useNavigate} from 'react-router-dom'
+import { getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import s from './Login.module.css'
 const Login =() => {
     let navigate = useNavigate();
@@ -36,11 +38,30 @@ const Login =() => {
         
       }
     }
+    const login = async () => {
+         try {
+            const auth = getAuth();
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+            .then((result) => {
+                 updateDoc(doc(db, 'users', result.user.uid), {
+                    isOnline: true
+                });
+                setData({email: '', password: '', error: null, loading: false})
+                navigate("/", { replace: true });
+             
+              })}
+              catch (e)  {
+                console.log(e)
+           };
+        
+    }
     const {email, password, error, loading} = data
     
     return (
         <section className={s.register}>
-           <form onSubmit={handleSubmit} className={s.form}>
+           <div className={s.form}> 
+           <form onSubmit={handleSubmit}>
            <h3>Loading into your Account</h3>
                 <div className={s.field}>
                     <label className={s.name}>Email
@@ -57,6 +78,13 @@ const Login =() => {
                     <button disabled={loading} className={s.customBtn}>{loading? "Logging in ...": "Login"}</button>
                 </div>
             </form>
+            <div>
+                <p>or connect with</p>
+                <button className={s.btnGoogle} onClick={login}>
+                    <div className={s.sign}></div>
+                </button>
+            </div>
+            </div>
         </section>
     )
 }

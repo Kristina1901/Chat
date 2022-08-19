@@ -136,3 +136,18 @@ h3 {
     border-radius: 5px;
     padding: 5px;
  }
+ .sign {
+  background-image: url(./google.png);
+  width: 22px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+ }
+ .btnGoogle {
+  background: transparent;
+  border: none;
+ }
+ p {
+  color: white;
+ }
