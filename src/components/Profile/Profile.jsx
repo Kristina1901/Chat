@@ -50,12 +50,11 @@ const Profile = ({ setFilterValue, handleQuery }) => {
   return (
     <div className={s.container}>
       <div className={s.containerUser}>
-        <img
-          src={user.hasOwnProperty('avatar') ? user.avatar : man}
-          alt="avatar"
-          width={'50px'}
-          height={'50px'}
-          className={s.photo}
+        <div
+        style={{ 
+          backgroundImage: `url(${user.hasOwnProperty('avatar')? user.avatar : man})` 
+        }}
+        className={s.photo}
         />
         <div className={user.isOnline ? s.isOnline : s.offline} />
         <input

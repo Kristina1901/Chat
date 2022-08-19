@@ -164,14 +164,11 @@ const Home = () => {
         {chat ? (
           <>
             <div className={s.speaker}>
-              <img
-                src={chat.hasOwnProperty('avatar') ? chat.avatar : avatar}
-                alt="avatar"
-                width={'50px'}
-                height={'50px'}
-                className={s.photo}
-              />
-              {/* <div className={chat.isOnline? s.isOnline: s.offline}/> */}
+              <div
+              style={{ 
+                backgroundImage: `url(${chat.hasOwnProperty('avatar') ? chat.avatar : avatar})` 
+              }} className={s.photo}/>
+               {/* <div className={chat.isOnline? s.isOnline: s.offline}/> */}
               <div className={s.isOnline} />
               {chat.name}
             </div>

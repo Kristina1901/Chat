@@ -19,7 +19,11 @@ const User =({user1, user, selectUser, chat}) => {
     className={s.profile}
     >
         <div className={s.photoStatus}>
-        <img src={user.avatar || Img} alt="avatar" width={'50px'} height={'50px'} className={s.photo}/>
+        <div
+        style={{ 
+          backgroundImage: `url(${user.avatar || Img})` 
+        }}
+        className={s.photo}/>
         {/* <div className={user.isOnline? s.online : s.offline}></div> */}
         <div className={s.online}></div>
         </div>
