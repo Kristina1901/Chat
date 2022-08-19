@@ -93,7 +93,7 @@ const Register =() => {
                 </div>
                </form>
                <div>
-                <p>or connect with</p>
+                <p>or create with</p>
                 <button className={s.btnGoogle} onClick={login}>
                     <div className={s.sign}></div>
                 </button>
