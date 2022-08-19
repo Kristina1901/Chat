@@ -48,7 +48,7 @@ h4 {
     margin: 0;
     color: white;
 }
-p {
+.lastMessage p {
   margin: 0;
   color:  #808080;
   max-width: 475px;
