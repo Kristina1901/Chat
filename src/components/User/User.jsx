@@ -20,7 +20,7 @@ const User =({user1, user, selectUser, chat}) => {
     >
         <div className={s.photoStatus}>
         <img src={user.avatar || Img} alt="avatar" width={'50px'} height={'50px'} className={s.photo}/>
-        <div className={user.isOnline? s.online :s.offline}></div>
+        <div className={user.isOnline? s.online : s.offline}></div>
         </div>
         <div className={s.lastMessage}>
         <h4>{user.name}</h4>
