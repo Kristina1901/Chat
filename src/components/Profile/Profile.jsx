@@ -74,7 +74,7 @@ const Profile = ({ setFilterValue, handleQuery }) => {
             className={s.searching}
             type="text"
             autoComplete="off"
-            placeholder="Search or chat new chat"
+            placeholder="Search or start new chat"
             name="filter"
             onChange={handleQuery}
           />
