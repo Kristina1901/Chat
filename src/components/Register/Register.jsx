@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword,  GoogleAuthProvider, getAuth, signInWithPopup,} from 'firebase/auth'
 import {auth, db} from '../../firebase'
 import {setDoc, doc, Timestamp} from 'firebase/firestore'
 import {useNavigate} from 'react-router-dom'
@@ -41,11 +41,36 @@ const Register =() => {
         
       }
     }
+    async function login () {
+        const provider = new GoogleAuthProvider();
+        const auth = getAuth();
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            setDoc(doc(db, 'users', result.user.uid), {
+                uid: user.uid,
+                name: user.displayName,
+                email: user.email,
+                createdAt: Timestamp.fromDate(new Date()),
+                isOnline: true,
+                avatar: user.photoURL
+            })
+            setData({name: '', email: '', password: '', error: null, loading: false})
+            navigate("/", { replace: true });
+            }).catch((error) => {
+                setData({...data, error: error.message, loading: false})
+           });
+    }
     const {name, email, password, error, loading} = data
     
     return (
         <section className={s.register}>
-            <form onSubmit={handleSubmit} className={s.form}>
+            <div className={s.form}>
+            <form onSubmit={handleSubmit}>
             <h3>Create An Account</h3>
                 <div className={s.field}>
                     <label className={s.name}>Name
@@ -66,8 +91,15 @@ const Register =() => {
                 <div>
                     <button disabled={loading} className={s.customBtn}>{loading? "Creating...": "Register"}</button>
                 </div>
-            </form>
-        </section>
+               </form>
+               <div>
+                <p>or connect with</p>
+                <button className={s.btnGoogle} onClick={login}>
+                    <div className={s.sign}></div>
+                </button>
+            </div>
+            </div>
+            </section>
     )
 }
 export default Register
