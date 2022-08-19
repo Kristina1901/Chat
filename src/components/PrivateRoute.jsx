@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from 'context/auth';
 
 const PrivateRoute = ({ redirectPath = '/register', children }) => {
-  const {user} = useContext(AuthContext)
-  return user? children : <Navigate to={redirectPath} replace />;
+  const { user } = useContext(AuthContext);
+  return user ? children : <Navigate to={redirectPath} replace />;
 };
-export default PrivateRoute
+export default PrivateRoute;
