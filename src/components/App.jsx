@@ -1,18 +1,17 @@
-import { lazy, Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { Routes, Route , Navigate} from 'react-router-dom';
 import Navbar from "./Navbar/Navbar";
 import Login from './Login/Login';
 import Home from './Home/Home';
 import Register from './Register/Register';
-import Profile from './Profile/Profile';
 import PrivateRoute from './PrivateRoute'
-import s from './App.module.css'
+import Loading from './Loading/Loading';
 export const App = () => {
   return (
    <>
 
    <Navbar/>
-   <Suspense fallback={<div>Download...</div>}>
+   <Suspense fallback={<Loading/>}>
     <Routes>
     
     <Route path="/register" element={<Register />} />
