@@ -93,9 +93,8 @@ const Home =() => {
         to: user2,
         createdAt: Timestamp.fromDate(new Date())
       })
-      setTimeout(cheakStatucUser(user2), 10000)
-     
-      
+      setText('')
+      setTimeout(cheakStatucUser(user2), 10000)    
       await setDoc(doc(db, 'lastMsg', id), {
         text,
         from: user1,
@@ -103,7 +102,7 @@ const Home =() => {
         createdAt: Timestamp.fromDate(new Date()), 
         unread: true
       })
-      setText('')
+     
     }
     return (
     <div className={s.home}>
