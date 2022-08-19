@@ -12,6 +12,8 @@ const Home =() => {
     const [chat, setChat] = useState("")
     const [text, setText] = useState("")
     const [msgs, setMsgs] = useState([])
+    const [search, setSearch] = useState([]);
+    const [keyword, setKeyword] = useState("")
     const arrUsers =['YklieGKo6YUsMnHz8rG8C3T4iRm1', 'nqVTMcpsQcYWiGIL5bmse1KEsG02', 'yZjBmNVSvOfy6Qe8MeFj3Toj17U2']
     const user1 = auth.currentUser.uid
     useEffect(() => {
@@ -83,6 +85,13 @@ const Home =() => {
             
      }
     }
+    const setFilterValue = e => {
+      e.preventDefault()
+      let {filter} = e.target.elements;
+      getResultSearch(filter.value)
+      setKeyword(filter.value)
+      
+    };
     const handleSubmit = async e => {
       e.preventDefault()
       const user2 = chat.uid;
@@ -104,18 +113,35 @@ const Home =() => {
       })
      
     }
+    const getResultSearch = (m) => {
+      const k =  users.filter(
+        user =>
+          user.name.toLowerCase().includes(m.toLowerCase()) 
+      );
+      setSearch(k)    
+    };
+    let list 
+    if(search.length === 0) {
+    list = <div className={s.errorMessage}>User is not found</div>
+    } 
+    else {
+      list = (search.map((user) =>(<User key={user.uid} user={user} selectUser={selectUser} user1={user1} chat={chat} />)))
+    }
+
     return (
     <div className={s.home}>
       <div className={s.sidebar}>
-      <Profile/>
+      <Profile setFilterValue={setFilterValue}/>
       <div className={s.wrapperUser}>
-     <p className={s.title}>Chats</p>  
-        {users.map((user) =>(<User key={user.uid} user={user} selectUser={selectUser} user1={user1} chat={chat} />))}
+     <p className={s.title}>Chats</p>
+      {keyword ===''? (users.map((user) =>(<User key={user.uid} user={user} selectUser={selectUser} user1={user1} chat={chat} />))) : 
+      (list)}
         </div>
         </div>
         <div className={s.messages}>{chat? <><div className={s.speaker}>
         <img src={chat.hasOwnProperty('avatar')? chat.avatar : avatar} alt="avatar" width={'50px'} height={"50px"} className={s.photo}/>
-        <div className={chat.isOnline? s.isOnline: s.offline}/>
+        {/* <div className={chat.isOnline? s.isOnline: s.offline}/> */}
+        <div className={s.isOnline}/>
         {chat.name}</div> 
         <div className={s.messagesWrapper}>
           {msgs.length? msgs.map((msg, i) => <Message key={i} msg={msg} user1={user1}/>): null}

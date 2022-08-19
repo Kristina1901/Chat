@@ -44,11 +44,8 @@
 }
 .main {
     padding: 10px;
-    padding-top: 30px;
     display: flex;
     flex-direction: column;
-    
-    
 }
 .time {
     color:  #808080;
@@ -60,6 +57,5 @@
    
 }
 .own + .time {
-    text-align: right;
-    padding-right: 30px;
+    margin: 1rem 2rem 1rem auto;
 }

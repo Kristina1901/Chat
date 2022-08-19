@@ -7,9 +7,10 @@ import { getDoc, doc, updateDoc } from "firebase/firestore"
 import circle from './circle.png';
 import checked from './checked.png'
 import icon from './icon.png'
-const Profile =() => {
+const Profile =({ setFilterValue }) => {
     const [img, setImg]= useState('')
     const [user, setUser] = useState({})
+    const [query, setQuery] = useState('');
     useEffect(() => {
         getDoc(doc(db, 'users', auth.currentUser.uid)).then(docSnap =>{
           if (docSnap.exists) {
@@ -37,10 +38,13 @@ const Profile =() => {
     }
 
     }, [img])
+    const handleQuery = event => {
+      setQuery(event.target.value.toLowerCase());
+    };
     
     return(
         <div className={s.container}>
-        <div>
+        <div className={s.containerUser}>
          <img src={user.hasOwnProperty('avatar')? user.avatar : man} alt="avatar" width={'50px'} height={'50px'} className={s.photo}/>
         <div className={user.isOnline? s.isOnline: s.offline}/>
         <input
@@ -51,9 +55,11 @@ const Profile =() => {
         onChange={(e) => setImg(e.target.files[0])}
         />
         </div>
+        <div className={s.formContainer}>
         <form
       className={s.form}
       id="form"
+      onSubmit={setFilterValue}
      
     >
     <button type="submit" className={s.buttonSubmit}>
@@ -65,8 +71,11 @@ const Profile =() => {
         autoComplete="off"
         placeholder="Search or chat new chat"
         name="filter"
+        value={query}
+        onChange={handleQuery}
     />
    </form>
+   </div>
         </div>
     )
 }

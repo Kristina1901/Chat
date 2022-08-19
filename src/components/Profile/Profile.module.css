@@ -3,14 +3,13 @@
    
 }
 .loadingPhoto {
-    position: absolute;
+    position: relative;
     opacity: 0;
     left: 0;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
-   
-    
+    bottom: 55px;
+    z-index: 1;
+    height: 50px;     
 }
 .container {
     padding: 15px;
@@ -38,7 +37,6 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 29px;
-  
   }
   .buttonSubmit {
     padding: 10px;
@@ -80,4 +78,10 @@
     bottom: 25px;
     left: 35px;
     position: relative;
+}
+.formContainer {
+  flex-grow: 2;
+}
+.containerUser {
+  flex-shrink: 2;
 }
