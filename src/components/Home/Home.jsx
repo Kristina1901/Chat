@@ -29,6 +29,7 @@ const Home = () => {
     'nqVTMcpsQcYWiGIL5bmse1KEsG02',
     'yZjBmNVSvOfy6Qe8MeFj3Toj17U2',
   ];
+  const [w, setW] = useState([]);
   const user1 = auth.currentUser.uid;
   useEffect(() => {
     const usersRef = collection(db, 'users');
@@ -37,7 +38,7 @@ const Home = () => {
       let users = [];
       querySnapshot.forEach(doc => {
         users.push(doc.data());
-      });
+     });
       setUsers(users);
     });
     return () => unsub();
@@ -89,6 +90,7 @@ const Home = () => {
         unread: true,
       });
       setText('');
+      getuser(user2)
     }
   }
   const setFilterValue = e => {
@@ -127,6 +129,19 @@ const Home = () => {
     setKeyword(event.target.value.toLowerCase());
     getResultSearch(event.target.value.toLowerCase());
   };
+  let getuser = (num) =>{
+    let arr = [...users]
+    let k = num 
+    let res= users.findIndex((user) => (user.uid === k))
+    let talker = users.find((user) => (user.uid === k))
+    if (res !== -1) {
+     arr.splice(res, 1);
+  }
+  arr.unshift(talker)
+   setW(arr)
+    
+  }
+
   let list;
   if (search.length === 0) {
     list = <div className={s.errorMessage}>User is not found</div>;
@@ -141,7 +156,31 @@ const Home = () => {
       />
     ));
   }
+  let companion
+  if (w.length === 0) {
+    companion = users.map(user => (
+      <User
+        key={user.uid}
+        user={user}
+        selectUser={selectUser}
+        user1={user1}
+        chat={chat}
 
+      />
+    ))
+  }
+  else {
+    companion = w.map(user => (
+      <User
+        key={user.uid}
+        user={user}
+        selectUser={selectUser}
+        user1={user1}
+        chat={chat}
+
+      />
+    ))
+  }
   return (
     <div className={s.home}>
       <div className={s.sidebar}>
@@ -149,15 +188,7 @@ const Home = () => {
         <div className={s.wrapperUser}>
           <p className={s.title}>Chats</p>
           {keyword === ''
-            ? users.map(user => (
-                <User
-                  key={user.uid}
-                  user={user}
-                  selectUser={selectUser}
-                  user1={user1}
-                  chat={chat}
-                />
-              ))
+            ? companion
             : list}
         </div>
       </div>
