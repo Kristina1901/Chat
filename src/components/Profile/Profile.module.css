@@ -71,7 +71,7 @@
     background-position: center;
     background-size: cover;
     position: relative;
-    bottom: 25px;
+    bottom: 15px;
     left: 35px;
 }
 .offline {
@@ -81,7 +81,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    bottom: 25px;
+    bottom: 15px;
     left: 35px;
     position: relative;
 }
