@@ -55,7 +55,7 @@ const Home = () => {
       let msgs = [];
       querySnapshot.forEach(doc => {
         msgs.push(doc.data());
-      });
+       });
       setMsgs(msgs);
     });
     //  const docSnap = await getDoc(doc(db, 'lastMsg', id));

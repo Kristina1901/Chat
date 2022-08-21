@@ -3,6 +3,7 @@ import {createUserWithEmailAndPassword,  GoogleAuthProvider, getAuth, signInWith
 import {auth, db} from '../../firebase'
 import {setDoc, doc, Timestamp} from 'firebase/firestore'
 import {useNavigate} from 'react-router-dom'
+import {collection, addDoc}from 'firebase/firestore';
 import s from './Register.module.css'
 const Register =() => {
     let navigate = useNavigate();
@@ -32,7 +33,70 @@ const Register =() => {
             email,
             createdAt: Timestamp.fromDate(new Date()),
             isOnline: true
-        });
+        })
+        let user1 = result.user.uid;
+        {
+        let user2 = 'nqVTMcpsQcYWiGIL5bmse1KEsG02'
+        const fff = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+        await addDoc(collection(db, 'messages', fff, 'chat'), {
+             text: 'Hello, how are you?',
+            from: user1,
+            to: user2,
+            createdAt: Timestamp.fromDate(new Date()),
+          });
+         await addDoc(collection(db, 'messages', fff, 'chat'), {
+           text: 'Hello, everything is fine, now in Lviv',
+           from: user2,
+           to: user1,
+           createdAt: Timestamp.fromDate(new Date()),
+         });
+         await setDoc(doc(db, 'lastMsg', fff), {
+           text: 'Hello, everything is fine, now in Lviv',
+           from: user2,
+           to: user2,
+           createdAt: Timestamp.fromDate(new Date()),
+           unread: true,
+         });
+        }
+        { let user2 = 'yZjBmNVSvOfy6Qe8MeFj3Toj17U2'
+            const fff = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+            await addDoc(collection(db, 'messages', fff, 'chat'), {
+                text: 'Hey, lets meet at the bar tonight?',
+                from: user2,
+                to: user1,
+                createdAt: Timestamp.fromDate(new Date()),
+              });
+              await addDoc(collection(db, 'messages', fff, 'chat'), {
+               text: `ok, I'll call you later`,
+               from: user1,
+               to: user2,
+               createdAt: Timestamp.fromDate(new Date()),
+             });
+             await setDoc(doc(db, 'lastMsg', fff), {
+               text: `ok, I'll call you later`,
+               from: user1,
+               to: user2,
+               createdAt: Timestamp.fromDate(new Date()),
+               unread: true,
+             });
+            }
+        ///
+        { let user2 = 'YklieGKo6YUsMnHz8rG8C3T4iRm1'
+        const fff = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
+        await addDoc(collection(db, 'messages', fff, 'chat'), {
+            text: `Let's drink coffee`,
+            from: user2,
+            to: user1,
+            createdAt: Timestamp.fromDate(new Date()),
+          });
+           await setDoc(doc(db, 'lastMsg', fff), {
+            text: `Let's drink coffee`,
+           from: user1,
+           to: user2,
+           createdAt: Timestamp.fromDate(new Date()),
+           unread: true,
+         });
+        }
         setData({name: '', email: '', password: '', error: null, loading: false})
         navigate("/", { replace: true });
         } catch (error) {
