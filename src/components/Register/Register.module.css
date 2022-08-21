@@ -8,7 +8,7 @@
  text-align: center;
  color: white;
  width: 300px;
- padding: 10px;
+ padding: 15px;
  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
  7px 7px 20px 0px rgba(0,0,0,.1),
  4px 4px 5px 0px rgba(0,0,0,.1);
@@ -20,7 +20,7 @@ h3 {
     color: white;
 }
 .customBtn {
-    width: 130px;
+    width: 190px;
     height: 40px;
     color: #fff;
     border-radius: 5px;
@@ -125,19 +125,39 @@ h3 {
     border: none;
     border-radius: 5px;
     padding: 5px;
+    outline: transparent;
+    border: 2px solid transparent;
+    margin-bottom: 5px;
  }
+ .nameInput:focus {
+  outline: #76aef1;
+  border: 2px solid #77a1d3;
+ } 
+ .emailInput:focus {
+  outline: #76aef1;
+  border: 2px solid #77a1d3;
+ } 
  .emailInput {
     margin-left: 40px;
     border: none;
     border-radius: 5px;
     padding: 5px;
+    outline: transparent;
+    border: 2px solid transparent;
+    margin-bottom: 5px;
  }
  .passwordInput {
     margin-left: 5px;
     border: none;
     border-radius: 5px;
     padding: 5px;
+    outline: transparent;
+    border: 2px solid transparent;
  }
+ .passwordInput:focus {
+  outline: #76aef1;
+  border: 2px solid #77a1d3;
+ } 
  .sign {
   background-image: url(./google.png);
   width: 22px;
@@ -150,7 +170,7 @@ h3 {
   color: white;
  }
  .btnGoogle {
-  width: 130px;
+  width: 190px;
   height: 40px;
   color: #fff;
   border-radius: 5px;
@@ -189,7 +209,7 @@ h3 {
   content: "";
   height: 0%;
   width: 1px;
- box-shadow:
+  box-shadow:
    -1px -1px 20px 0px rgba(255,255,255,1),
    -4px -4px 5px 0px rgba(255,255,255,1),
    7px 7px 20px 0px rgba(0,0,0,.4),

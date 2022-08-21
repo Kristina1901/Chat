@@ -136,18 +136,21 @@ const Register =() => {
             <form onSubmit={handleSubmit}>
             <h3>Create An Account</h3>
                 <div className={s.field}>
-                    <label className={s.name}>Name
-                        <input name="name" value={name} onChange={handleChange} className={s.nameInput}></input>
+                  <label className={s.name}>Name
+                    <input name="name" value={name} onChange={handleChange} className={s.nameInput} placeholder={'Name'}>
+                        </input>
                     </label>
                 </div>
                 <div className={s.field}>
                     <label className={s.name}>Email
-                        <input name="email" value={email} onChange={handleChange} className={s.emailInput}></input>
+                        <input name="email" value={email} onChange={handleChange} className={s.emailInput} placeholder={'Email'}>
+                        </input>
                     </label>
                 </div>
                 <div className={s.field}>
                     <label className={s.name}>Password
-                        <input name="password" value={password} onChange={handleChange} className={s.passwordInput}></input>
+                        <input name="password" value={password} onChange={handleChange} className={s.passwordInput} placeholder={'Password'}>
+                       </input>
                     </label>
                 </div>
                 {error? <p>{error}</p>: null}

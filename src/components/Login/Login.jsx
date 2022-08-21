@@ -65,12 +65,14 @@ const Login =() => {
            <h3>Loading into your Account</h3>
                 <div className={s.field}>
                     <label className={s.name}>Email
-                        <input name="email" value={email} onChange={handleChange} className={s.emailInput}></input>
+                        <input name="email" value={email} onChange={handleChange} className={s.emailInput} placeholder={'Email'}>
+                        </input>
                     </label>
                 </div>
                 <div className={s.field}>
                     <label className={s.name}>Password
-                        <input name="password" value={password} onChange={handleChange} className={s.passwordInput}></input>
+                        <input name="password" value={password} onChange={handleChange} className={s.passwordInput} placeholder={'Password'}>
+                         </input>
                     </label>
                 </div>
                 {error? <p>{error}</p>: null}
