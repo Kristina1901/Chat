@@ -30,6 +30,7 @@ const Home = () => {
     'yZjBmNVSvOfy6Qe8MeFj3Toj17U2',
   ];
   const [w, setW] = useState([]);
+  const [staticList, setStaticList] = useState([]);
   const user1 = auth.currentUser.uid;
   useEffect(() => {
     const usersRef = collection(db, 'users');
@@ -40,6 +41,7 @@ const Home = () => {
         users.push(doc.data());
      });
       setUsers(users);
+      filterByID(users)
     });
     return () => unsub();
   }, []);
@@ -158,7 +160,7 @@ const Home = () => {
   }
   let companion
   if (w.length === 0) {
-    companion = users.map(user => (
+    companion = staticList.map(user => (
       <User
         key={user.uid}
         user={user}
@@ -180,6 +182,10 @@ const Home = () => {
 
       />
     ))
+  }
+  function filterByID(v) {
+    const doubles = arrUsers.map((num) => v.filter(user=> user.uid === num));
+   setStaticList(doubles.flat())
   }
   return (
     <div className={s.home}>

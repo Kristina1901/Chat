@@ -35,8 +35,7 @@ const Register =() => {
         });
         setData({name: '', email: '', password: '', error: null, loading: false})
         navigate("/", { replace: true });
-     
-      } catch (error) {
+        } catch (error) {
         setData({...data, error: error.message, loading: false})
         
       }
