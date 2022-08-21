@@ -42,6 +42,7 @@
     flex-grow: 2;
     max-width: 300px;
     padding: 10px;
+    max-height: 110px;
     overflow: hidden;
 }
 h4 {
@@ -53,7 +54,7 @@ h4 {
   color:  #808080;
   max-width: 475px;
   padding: 5px;
-  max-height: 100px;
+ 
 }
 .time {
     color: white;
