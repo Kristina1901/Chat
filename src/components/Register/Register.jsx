@@ -39,7 +39,7 @@ const Register =() => {
         let user2 = 'nqVTMcpsQcYWiGIL5bmse1KEsG02'
         const fff = user1 > user2 ? `${user1 + user2}` : `${user2 + user1}`;
         await addDoc(collection(db, 'messages', fff, 'chat'), {
-             text: 'Hello, how are you?',
+            text: 'Hello, how are you?',
             from: user1,
             to: user2,
             createdAt: Timestamp.fromDate(new Date()),
