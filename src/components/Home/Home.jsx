@@ -31,6 +31,7 @@ const Home = () => {
   ];
   const [w, setW] = useState([]);
   const [staticList, setStaticList] = useState([]);
+  const [button, setButton] = useState(false);
   const user1 = auth.currentUser.uid;
   useEffect(() => {
     const usersRef = collection(db, 'users');
@@ -155,6 +156,7 @@ const Home = () => {
         selectUser={selectUser}
         user1={user1}
         chat={chat}
+        visability={visability}
       />
     ));
   }
@@ -167,7 +169,7 @@ const Home = () => {
         selectUser={selectUser}
         user1={user1}
         chat={chat}
-
+        visability={visability}
       />
     ))
   }
@@ -179,15 +181,19 @@ const Home = () => {
         selectUser={selectUser}
         user1={user1}
         chat={chat}
-
-      />
+        visability={visability}
+     />
     ))
   }
   function filterByID(v) {
     const doubles = arrUsers.map((num) => v.filter(user=> user.uid === num));
    setStaticList(doubles.flat())
   }
+  function visability (n) {
+    setButton(n)
+  }
   return (
+    <div className={s.container}>
     <div className={s.home}>
       <div className={s.sidebar}>
         <Profile setFilterValue={setFilterValue} handleQuery={handleQuery} />
@@ -198,10 +204,11 @@ const Home = () => {
             : list}
         </div>
       </div>
-      <div className={s.messages}>
-        {chat ? (
-          <>
-            <div className={s.speaker}>
+      {chat ? (
+      <div className={button === false? s.messages : s.messagePhone}>
+         <div className={s.speaker}>
+         <button className={s.back} onClick={() =>visability(true)}></button>
+         <div>
               <div
               style={{ 
                 backgroundImage: `url(${chat.hasOwnProperty('avatar') ? chat.avatar : avatar})` 
@@ -209,7 +216,8 @@ const Home = () => {
                {/* <div className={chat.isOnline? s.isOnline: s.offline}/> */}
               <div className={s.isOnline} />
               {chat.name}
-            </div>
+              </div>
+             </div>
             <div className={s.messagesWrapper}>
               {msgs.length
                 ? msgs.map((msg, i) => (
@@ -222,11 +230,12 @@ const Home = () => {
               text={text}
               setText={setText}
             />
-          </>
+          
+        </div>
         ) : (
           <div className={s.select}>Select..</div>
         )}
-      </div>
+    </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { onSnapshot, doc } from 'firebase/firestore'
 import {db} from '../../firebase'
 import Moment from "react-moment"
-const User =({user1, user, selectUser, chat,}) => {
+const User =({user1, user, selectUser, chat, visability}) => {
     const user2 = user?.uid
     const [data, setData] = useState('')
     useEffect (()=> {
@@ -14,8 +14,12 @@ const User =({user1, user, selectUser, chat,}) => {
     })
      return () => unsub()
     }, [])
+    function validate () {
+        selectUser(user)
+        visability(false)
+    }
     return ( 
-    <div onClick={() => selectUser(user)} 
+    <div onClick={() => validate()} 
     className={s.profile}
     >
         <div className={s.photoStatus}>
