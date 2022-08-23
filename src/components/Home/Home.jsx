@@ -195,7 +195,7 @@ const Home = () => {
   return (
     <div className={s.container}>
     <div className={s.home}>
-      <div className={button === true? s.sidebarPhone: s.sidebar }>
+      <div className={s.sidebar}>
         <Profile setFilterValue={setFilterValue} handleQuery={handleQuery} />
         <div className={s.wrapperUser}>
           <p className={s.title}>Chats</p>
