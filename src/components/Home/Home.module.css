@@ -14,11 +14,11 @@
     top:0;
     z-index: 1;
     background: #ffffbf;
+    width: 100%;
     
 }
 .sidebar {
  border: 2px solid white;
- border-bottom: none;
 }
 .photo {
     border-radius: 50%;
@@ -183,5 +183,8 @@
     border-radius: 50%;
   }
   .messagePhone {
+    display: none;
+  }
+  .sidebarPhone {
     display: none;
   }
