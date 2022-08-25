@@ -19,6 +19,7 @@
 }
 .sidebar {
  border: 2px solid white;
+ border-bottom: none;
 }
 .photo {
     border-radius: 50%;
@@ -109,6 +110,7 @@
    font-weight: 400;
    font-size: 20px;
    line-height: 29px;
+   border-bottom: 2px solid white;
 }
 .container {
     width: 340px;
