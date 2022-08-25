@@ -1,192 +1,189 @@
 .home {
-    display: block;
-    font-family: 'Jost';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 29px;
-    background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
-    position: relative;
+  display: block;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
+  position: relative;
 }
 .messages {
-    border: 2px solid white;
-    position: absolute;
-    top:0;
-    z-index: 1;
-    background: #ffffbf;
-    width: 100%;
-    
+  border: 2px solid white;
+  position: absolute;
+  top:0;
+  z-index: 1;
+  background: #ffffbf;
+  width: 100%;
+  
 }
 .sidebar {
- border: 2px solid white;
- border-bottom: none;
+border: 2px solid white;
+border-bottom: none;
 }
 .photo {
-    border-radius: 50%;
-    margin-right: 10px;
-    width: 50px;
-    height: 50px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
 }
 .speaker {
-    border: 2px solid white;
-    padding: 15px;
-    border-left: none;
-    border-top: none;
-    background: linear-gradient(to right, #6190e8, #a7bfe8);
-    color: white;
-    display: flex;
-    border-right: none;
-    justify-content: space-between;
+  border: 2px solid white;
+  padding: 15px;
+  border-left: none;
+  border-top: none;
+  background: linear-gradient(to right, #6190e8, #a7bfe8);
+  color: white;
+  display: flex;
+  border-right: none;
+  justify-content: space-between;
 }
 .wrapperUser {
-    padding-top: 25px;
-    position: sticky;
-    top: 10px;
+  padding-top: 25px;
+  position: sticky;
+  top: 10px;
 }
 .title {
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-size: 28px;
-    line-height: 29px;
-    color: white;
-    padding: 15px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 29px;
+  color: white;
+  padding: 15px;
 }
 .messagesWrapper {
-    flex-grow: 2;
-    padding: 15px;
-    overflow-y: auto;
+  flex-grow: 2;
+  padding: 15px;
+  overflow-y: auto;
 }
 .messagesWrapper::-webkit-scrollbar {
-    width: 10px;
-  }
-  
+  width: 10px;
+}
+
 .messagesWrapper::-webkit-scrollbar-track {
-    background:white;	
-  }
-  
+  background:white;	
+}
+
 .messagesWrapper::-webkit-scrollbar-thumb {
-    background-color:#FFC0CB;
-    border-radius: 20px;
-    border: 1px solid white;
-  }
+  background-color:#FFC0CB;
+  border-radius: 20px;
+  border: 1px solid white;
+}
 .select {
-   padding: 15px;
-   color: white;
-   border: 2px solid white;
-   border-left: none;
-   display: none;
+ padding: 15px;
+ color: white;
+ border: 2px solid white;
+ border-left: none;
+ width: 100%;
 }
 .isOnline {
-    background-image: url(./checked.png);
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    bottom: 15px;
-    left: 35px;
+  background-image: url(./checked.png);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  bottom: 15px;
+  left: 35px;
 }
 .offline {
-    background-image: url(./circle.png);
-    width: 20px;
-    height: 20px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    bottom: 15px;
-    left: 35px;
-    position: relative;
+  background-image: url(./circle.png);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  bottom: 15px;
+  left: 35px;
+  position: relative;
 }
 .errorMessage {
-    color: white;
-    padding: 15px;
-    font-family: 'Jost';
-   font-style: normal;
-   font-weight: 400;
-   font-size: 20px;
-   line-height: 29px;
-   border-bottom: 2px solid white;
+  color: white;
+  padding: 15px;
+  font-family: 'Jost';
+ font-style: normal;
+ font-weight: 400;
+ font-size: 20px;
+ line-height: 29px;
+ border-bottom: 2px solid white;
 }
 .container {
-    width: 340px;
-    margin: 0 auto;
-    
- }
+  width: 340px;
+  margin: 0 auto;
   
-  @media (min-width: 768px) {
-    .container {
-      width: 800px;
-    }
-    .home {
-        display: flex;
-    }
-    .messages {
-        border-left: none;
-        flex-grow: 2;
-        border: 2px solid white;
-        border-left: none;
-        display: flex;
-        flex-direction: column;
-        position: static;
-        background: transparent
-    }
-    .select {
-        width: 100%;
-        
-     }
-     .select {
-        display: block
-     }
-     .back {
-        display: none;
-      }
 }
-  @media (min-width: 1280px) {
-    .container {
-      width: 1500px;
+.sidebarPhone {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 800px;
+  }
+  .home {
+      display: flex;
+  }
+  .messages {
+      border-left: none;
+      flex-grow: 2;
+      border: 2px solid white;
+      border-left: none;
+      display: flex;
+      flex-direction: column;
+      position: static;
+      background: transparent
+  }
+   .back {
+      display: none;
     }
-    .home {
-        display: flex;
+    .sidebarPhone {
+      display: block;
+      border: 2px solid white;
+      border-bottom: none;
+   
     }
-    .messages {
-        border-left: none;
-        flex-grow: 2;
-        border: 2px solid white;
-        border-left: none;
-        display: flex;
-        flex-direction: column;
-        background: transparent
-    }
-    .select {
-        width: 100%;
-        
-     }
-     .select {
-        display: block
-     }
-     .back {
-        display: none;
-      }
+}
+@media (min-width: 1280px) {
+  .container {
+    width: 1500px;
+  }
+  .home {
+      display: flex;
+  }
+  .messages {
+      border-left: none;
+      flex-grow: 2;
+      border: 2px solid white;
+      border-left: none;
+      display: flex;
+      flex-direction: column;
+      background: transparent
   }
   .back {
-    background-image: url(./back.png);
-    width: 35px;
-    height: 35px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border: none;
-    background-color: white;
-    border-radius: 50%;
-  }
-  .messagePhone {
-    display: none;
-  }
-  .sidebarPhone {
-    display: none;
-  }
+      display: none;
+    }
+    .sidebarPhone {
+      display: block;
+      border: 2px solid white;
+      border-bottom: none;
+    }
+}
+.back {
+  background-image: url(./back.png);
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+}
+.messagePhone {
+  display: none;
+}

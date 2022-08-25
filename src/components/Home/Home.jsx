@@ -31,7 +31,7 @@ const Home = () => {
   ];
   const [w, setW] = useState([]);
   const [staticList, setStaticList] = useState([]);
-  const [button, setButton] = useState(false);
+  const [button, setButton] = useState(null);
   const user1 = auth.currentUser.uid;
   useEffect(() => {
     const usersRef = collection(db, 'users');
@@ -195,7 +195,7 @@ const Home = () => {
   return (
     <div className={s.container}>
     <div className={s.home}>
-      <div className={s.sidebar}>
+      <div className={button=== null || button===true? s.sidebar : s.sidebarPhone}>
         <Profile setFilterValue={setFilterValue} handleQuery={handleQuery} />
         <div className={s.wrapperUser}>
           <p className={s.title}>Chats</p>
