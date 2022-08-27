@@ -15,7 +15,9 @@
   z-index: 1;
   background: #ffffbf;
   width: 100%;
-  
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar {
 border: 2px solid white;
